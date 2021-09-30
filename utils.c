@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:09:46 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/30 16:20:04 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/30 18:57:01 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,31 @@ void	ft_swap(long *a, long *b)
 	*b = temp;
 }
 
-int		ft_isdigit(char *str)
+void	sort_int_tab(t_tab *tabs, int size)
 {
 	int	i;
 
-	i = 0;
-	if (str[i] == '+' || str[i] == '-')
+	i = 1;
+	if (size > 1)
+	{
+		while (i < size)
 		{
-			if (!str[i + 1] || str[i + 1] == '+' || str[i + 1] == '-')
-				return (-2);
+			if (tabs->perfect_tab[i] < tabs->perfect_tab[i - 1])
+			{
+				ft_swap(&tabs->perfect_tab[i], &tabs->perfect_tab[i - 1]);
+				i = 0;
+			}
 			i++;
 		}
-	while (str[i])
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (-2);
-		i++;
 	}
-	return (0);
+}
+
+int		ft_strcmp(char *s1, char *s2)
+{
+	size_t i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
