@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/25 16:50:07 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:19:21 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,27 @@
 
 typedef	struct 	s_tab
 {
-	int *tab1;
-	int *tab2;
+	long *tab1;
+	long *tab2;
+	int	index_a;
+	int	index_b;
 }				t_tab;
 
 int	init_tab(int argc, char **argv, t_tab *tabs);
-int	ft_atoi(const char *str);
-void	ft_swap(int *a, int *b);
-void	swap_a(int argc, t_tab *tabs);
-void	swap_b(int argc, t_tab *tabs);
-void	push_a(int argc, t_tab *tabs);
-void	push_b(int argc, t_tab *tabs);
-void	rotate_a(int argc, t_tab *tabs);
-void	rotate_b(int argc, t_tab *tabs);
+long	ft_atoi(const char *str);
+int	ft_isdigit(char *str);
+void	ft_swap(long *a, long *b);
+int	parsing(int argc, char **argv);
+void	swap_a(t_tab *tabs);
+void	swap_b(t_tab *tabs);
+void	push_a(t_tab *tabs);
+void	push_b(t_tab *tabs);
+void	rotate_a(t_tab *tabs);
+void	rotate_b(t_tab *tabs);
 void	reverse_r_a(int argc, t_tab *tabs);
 void	reverse_r_b(int argc, t_tab *tabs);
-void	swap_a_b(int argc, t_tab *tabs);
-void	rotate_a_b(int argc, t_tab *tabs);
+void	swap_a_b(t_tab *tabs);
+void	rotate_a_b(t_tab *tabs);
 void	reverse_r_a_b(int argc, t_tab *tabs);
 
 

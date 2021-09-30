@@ -2,7 +2,13 @@ NAME			=	push_swap
 SRC_DIR			=	./
 INC_DIR			=	./
 SRCS			=	main.c	\
-					
+					init_tab.c	\
+					operations1.c	\
+					operations2.c	\
+					operations3.c	\
+					parsing.c		\
+					utils.c			
+
 
 
 					
