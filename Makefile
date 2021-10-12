@@ -7,7 +7,8 @@ SRCS			=	main.c	\
 					operations2.c	\
 					operations3.c	\
 					parsing.c		\
-					utils.c			
+					utils.c			\
+					algo.c		
 
 
 
