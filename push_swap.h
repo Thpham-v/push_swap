@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/12 18:42:54 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/13 15:58:20 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,29 @@ typedef	struct 	s_tab
 	int	index_b;
 }				t_tab;
 
+typedef struct	s_ope
+{
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+}				t_ope;
+
 typedef	struct	s_var
 {
 	int	pos_first;
 	int	pos_last;
 	int	count_chunk;
 	int	chunk_size;
-	
+	int	count_round;
+	int	j;
+	t_ope	ope;
 }				t_var;
+
+
+
 
 
 int	init_tab(int argc, char **argv, t_tab *tabs);
@@ -54,9 +69,9 @@ void	reverse_r_b(int argc, t_tab *tabs);
 void	swap_a_b(t_tab *tabs);
 void	rotate_a_b(t_tab *tabs);
 void	reverse_r_a_b(int argc, t_tab *tabs);
-int	first_or_last(t_tab *tabs, t_var *var, int argc);
-int	hold_first(t_tab *tabs, t_var *var, int argc);
-int	hold_second(t_tab *tabs, t_var *var, int argc);
+int	first_or_last(t_tab *tabs, t_var *var);
+int	hold_first(t_tab *tabs, t_var *var);
+int	hold_second(t_tab *tabs, t_var *var);
 
 
 #endif
