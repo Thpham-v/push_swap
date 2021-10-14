@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:14 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/13 13:57:11 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/14 21:39:24 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (parsing(argc, argv) == -1 || init_tab(argc, argv, &tabs) == -1)
 		return (1);
-	sort_int_tab(&tabs, argc - 1);
+	algo(&tabs, &var, argc);
 	var.chunk_size = 5;
-	printf("retour = %d\n", first_or_last(&tabs, &var, argc));
-	printf("first = %d\nlast = %d\n\n", var.pos_first, var.pos_last);
 	while (i < argc - 1)
 	{
 		printf("perfect = %ld\n", tabs.perfect_tab[i]);

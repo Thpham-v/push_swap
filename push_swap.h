@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/13 15:58:20 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/14 21:34:34 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void	reverse_r_a_b(int argc, t_tab *tabs);
 int	first_or_last(t_tab *tabs, t_var *var);
 int	hold_first(t_tab *tabs, t_var *var);
 int	hold_second(t_tab *tabs, t_var *var);
-
+void	ft_bzero(void *s, size_t n);
 
 #endif

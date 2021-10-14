@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/13 16:54:52 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/14 22:01:38 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,15 +121,60 @@ void	get_value(t_tab *tabs, t_var *var)
 	if (pos_b <= tabs->index_b / 2)
 		var->ope.rb = pos_b;
 	else
-		var->ope.rrb = tabs->index_b - pos_b;	
+		var->ope.rrb = tabs->index_b - pos_b;
+	opti(var);
 }
 
 void	opti(t_var *var)
 {
-	if (var->ope.ra > var->ope.rb)
-		var->ope.rr = var->ope.ra - var->ope.rb;
+	if (var->ope.ra >= var->ope.rb)
+	{
+		var->ope.ra = var->ope.ra - var->ope.rb;
+		var->ope.rr = var->ope.rb;
+		var->ope.rb = 0;
+	}
 	else
-		var->ope.rr = var->ope.rb - var->ope.ra;
+	{
+		var->ope.rb = var->ope.rb - var->ope.ra;
+		var->ope.rr = var->ope.ra;
+		var->ope.ra = 0;
+	}
+	if (var->ope.rra >= var->ope.rrb)
+	{
+		var->ope.rra = var->ope.rra - var->ope.rrb;
+		var->ope.rrr = var->ope.rrb;
+		var->ope.rrb = 0;
+	}
+	else
+	{
+		var->ope.rrb = var->ope.rrb - var->ope.rra;
+		var->ope.rrr = var->ope.rra;
+		var->ope.rra = 0;
+	}
+}
+
+void	apply_ope(t_tab *tabs, t_var *var, int argc)
+{
+	while (var->ope.rr-- < 0)
+		rotate_a_b(tabs);
+	while (var->ope.ra-- < 0)
+		rotate_a(tabs);
+	while (var->ope.rb-- < 0)
+		rotate_b(tabs);
+	while (var->ope.rrr-- < 0)
+		reverse_r_a_b(argc, tabs);
+	while (var->ope.rra-- < 0)
 	
-		
+	while (var->ope.rrb-- < 0)
+	
+}
+
+int	algo(t_tab *tabs, t_var *var, int argc)
+{
+	while (tabs->index_a != 0)
+	{
+		get_value(tabs, var);
+
+
+	}
 }
