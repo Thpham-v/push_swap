@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:57:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/28 16:32:31 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:40:33 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,32 @@ void	rotate_b(t_tab *tabs)
 	}
 }
 
-void	reverse_r_a(int argc, t_tab *tabs)
+void	reverse_r_a(t_tab *tabs)
 {
+	int	i;
+
+	i = tabs->index_a - 1;
 	if (tabs->index_a >= 2)
 	{
-		while (argc - 2)
+		while (i > 0)
 		{
-			ft_swap(&tabs->tab1[argc - 3], &tabs->tab1[argc - 2]);
-			argc--;
+			ft_swap(&tabs->tab1[i - 1], &tabs->tab1[i]);
+			i--;
 		}
 	}
 }
 
-void	reverse_r_b(int argc, t_tab *tabs)
+void	reverse_r_b(t_tab *tabs)
 {
+	int	i;
+
+	i = tabs->index_b - 1;
 	if (tabs->index_b >= 2)
 	{
-		while (argc - 2)
+		while (i > 0)
 		{
-			ft_swap(&tabs->tab2[argc - 3], &tabs->tab2[argc - 2]);
-			argc--;
+			ft_swap(&tabs->tab2[i - 1], &tabs->tab2[i]);
+			i--;
 		}
 	}
 }

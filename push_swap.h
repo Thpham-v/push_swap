@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/14 21:34:34 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:59:23 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef	struct	s_var
 	int	count_chunk;
 	int	chunk_size;
 	int	count_round;
-	int	j;
 	t_ope	ope;
 }				t_var;
 
@@ -64,11 +63,11 @@ void	push_a(t_tab *tabs);
 void	push_b(t_tab *tabs);
 void	rotate_a(t_tab *tabs);
 void	rotate_b(t_tab *tabs);
-void	reverse_r_a(int argc, t_tab *tabs);
-void	reverse_r_b(int argc, t_tab *tabs);
+void	reverse_r_a(t_tab *tabs);
+void	reverse_r_b(t_tab *tabs);
 void	swap_a_b(t_tab *tabs);
 void	rotate_a_b(t_tab *tabs);
-void	reverse_r_a_b(int argc, t_tab *tabs);
+void	reverse_r_a_b(t_tab *tabs);
 int	first_or_last(t_tab *tabs, t_var *var);
 int	hold_first(t_tab *tabs, t_var *var);
 int	hold_second(t_tab *tabs, t_var *var);

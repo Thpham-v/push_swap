@@ -16,7 +16,7 @@ SRCS			=	main.c	\
 SRC_BASENAME	=	$(addprefix $(SRC_DIR), $(SRCS))		
 OBJS			=	$(SRC_BASENAME:.c=.o)
 CC				=	clang 
-FLAGS			=	-Wall -Wextra -Werror -I $(INC_DIR)
+FLAGS			=	-Wall -Wextra -I $(INC_DIR)
 
 .c.o		:
 				$(CC) $(FLAGS) -c $< -o $@

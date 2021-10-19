@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:59:28 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/28 16:17:27 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/18 17:45:00 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	rotate_a_b(t_tab *tabs)
 	}
 }
 
-void	reverse_r_a_b(int argc, t_tab *tabs)
+void	reverse_r_a_b(t_tab *tabs)
 {
 	if (tabs->index_a >= 2 && tabs->index_b >= 2)
 	{
-		reverse_r_a(argc, tabs);
-		reverse_r_b(argc, tabs);
+		reverse_r_a(tabs);
+		reverse_r_b(tabs);
 	}
 }

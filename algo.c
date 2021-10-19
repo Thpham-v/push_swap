@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/14 22:01:38 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:05:57 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	pos_in_b(t_tab *tabs, int value)
 
 int	first_or_last(t_tab *tabs, t_var *var)
 {
+	
 	var->pos_first = hold_first(tabs, var);
 	var->pos_last = hold_second(tabs, var);
 	if (var->pos_first == -1 || var->pos_last == -1)
@@ -65,16 +66,17 @@ int	first_or_last(t_tab *tabs, t_var *var)
 int	hold_first(t_tab *tabs, t_var *var)
 {
 	int i;
+	int	j;
 	 
 	i = 0;
 	while (i < tabs->index_a)
 	{
-		var->j = 0 + var->count_chunk; 
-		while (var->j < var->chunk_size)
+		j = var->chunk_size * var->count_chunk; 
+		while (j < var->chunk_size * (var->count_chunk + 1))
 		{
-			if (tabs->tab1[i] == tabs->perfect_tab[var->j])
+			if (tabs->tab1[i] == tabs->perfect_tab[j])
 				return (i);
-			var->j++;
+			j++;
 		}
 		i++;
 	}
@@ -84,16 +86,17 @@ int	hold_first(t_tab *tabs, t_var *var)
 int	hold_second(t_tab *tabs, t_var *var)
 {
 	int i;
+	int	j;
 	
 	i = tabs->index_a - 1;
 	while (i >= 0)
 	{
-		var->j = 0 + var->count_chunk;
-		while (var->j < var->chunk_size)
+		j = var->chunk_size * var->count_chunk;
+		while (j < var->chunk_size * (var->count_chunk + 1))
 		{
-			if (tabs->tab1[i] == tabs->perfect_tab[var->j])
+			if (tabs->tab1[i] == tabs->perfect_tab[j])
 				return (i);
-			var->j++;
+			j++;
 		}
 		i--;
 	}
@@ -155,26 +158,31 @@ void	opti(t_var *var)
 
 void	apply_ope(t_tab *tabs, t_var *var, int argc)
 {
-	while (var->ope.rr-- < 0)
+	while (var->ope.rr-- > 0)
 		rotate_a_b(tabs);
-	while (var->ope.ra-- < 0)
+	while (var->ope.ra-- > 0)
 		rotate_a(tabs);
-	while (var->ope.rb-- < 0)
+	while (var->ope.rb-- > 0)
 		rotate_b(tabs);
-	while (var->ope.rrr-- < 0)
-		reverse_r_a_b(argc, tabs);
-	while (var->ope.rra-- < 0)
-	
-	while (var->ope.rrb-- < 0)
-	
+	while (var->ope.rrr-- > 0)
+		reverse_r_a_b(tabs);
+	while (var->ope.rra-- > 0)
+		reverse_r_a(tabs);
+	while (var->ope.rrb-- > 0)
+		reverse_r_b(tabs);
 }
 
 int	algo(t_tab *tabs, t_var *var, int argc)
 {
-	while (tabs->index_a != 0)
+	var->count_chunk = 0;
+	var->count_round = 0;
+	while (tabs->index_a >= 0)
 	{
+		ft_bzero(&var->ope, sizeof(t_ope));
+		if (var->count_round == var->chunk_size)
+			var->count_chunk++;
 		get_value(tabs, var);
 
-
+		var->count_round++;
 	}
 }
