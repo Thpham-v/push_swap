@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:50:32 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/18 18:32:26 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/20 13:49:23 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,4 @@ int	init_tab(int argc, char **argv, t_tab *tabs)
 	}
 	sort_int_tab(tabs, argc - 1);
 	return (0);
-}
-
-void	init_ope(t_ope *ope)
-{
-	
 }

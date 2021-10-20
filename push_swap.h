@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/19 16:59:23 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/20 14:27:54 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef	struct	s_var
 	int	count_chunk;
 	int	chunk_size;
 	int	count_round;
+	int	ret_chunk;
 	t_ope	ope;
 }				t_var;
 
@@ -72,5 +73,6 @@ int	first_or_last(t_tab *tabs, t_var *var);
 int	hold_first(t_tab *tabs, t_var *var);
 int	hold_second(t_tab *tabs, t_var *var);
 void	ft_bzero(void *s, size_t n);
+int	algo(t_tab *tabs, t_var *var);
 
 #endif
