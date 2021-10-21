@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/20 19:27:14 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:53:20 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	bigger_pos(t_tab *tabs)
 		if (tabs->tab2[i] > bigger)
 		{
 			bigger = tabs->tab2[i];
-			pos = i;
+			pos = i + 1;
 		}
 		i++;
 	}
@@ -36,10 +36,9 @@ int	pos_in_b(t_tab *tabs, int value)
 {
 	int	i;
 
-	i = -1;
-	while (i < tabs->index_b)
+	i = 0;
+	while (i <= tabs->index_b)
 	{
-		i++;
 		if (i == 0)
 		{
 			if (value < tabs->tab2[tabs->index_b - 1] && value > tabs->tab2[i])
@@ -47,6 +46,7 @@ int	pos_in_b(t_tab *tabs, int value)
 		}
 		if (value < tabs->tab2[i] && value > tabs->tab2[i + 1])
 			return (i + 1);
+		i++;
 	}
 	return (-1);
 }
@@ -72,10 +72,14 @@ int	hold_first(t_tab *tabs, t_var *var)
 	while (i < tabs->index_a)
 	{
 		j = var->chunk_size * var->count_chunk;
+		printf("first = %d\n", j);
 		while (j < var->chunk_size * (var->count_chunk + 1))
 		{
 			if (tabs->tab1[i] == tabs->perfect_tab[j])
+			{
+				printf("\n");
 				return (i);
+			}
 			j++;
 		}
 		i++;
@@ -92,10 +96,14 @@ int	hold_second(t_tab *tabs, t_var *var)
 	while (i >= 0)
 	{
 		j = var->chunk_size * var->count_chunk;
+		printf("second = %d\n", j);
 		while (j < var->chunk_size * (var->count_chunk + 1))
 		{
 			if (tabs->tab1[i] == tabs->perfect_tab[j])
+			{
+				printf("\n");
 				return (i);
+			}
 			j++;
 		}
 		i--;
@@ -182,6 +190,7 @@ int	algo(t_tab *tabs, t_var *var)
 		get_value(tabs, var);
 		apply_ope(tabs, var);
 		push_b(tabs);
+		
 		//printf("round = %d\nchunksize = %d\ncount_chunk = %d\n", var->count_round, var->chunk_size, var->count_chunk);
 		if (var->count_round == var->chunk_size)
 		{
