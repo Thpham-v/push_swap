@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/21 17:53:20 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/22 17:52:16 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	bigger_pos(t_tab *tabs)
 	int bigger;
 	int	pos;
 
+	pos = 0;
 	i = 1;
 	bigger = tabs->tab2[0];
 	while (i < tabs->index_b)
@@ -25,7 +26,7 @@ int	bigger_pos(t_tab *tabs)
 		if (tabs->tab2[i] > bigger)
 		{
 			bigger = tabs->tab2[i];
-			pos = i + 1;
+			pos = i;
 		}
 		i++;
 	}
@@ -37,7 +38,7 @@ int	pos_in_b(t_tab *tabs, int value)
 	int	i;
 
 	i = 0;
-	while (i <= tabs->index_b)
+	while (i < tabs->index_b)
 	{
 		if (i == 0)
 		{
@@ -72,14 +73,10 @@ int	hold_first(t_tab *tabs, t_var *var)
 	while (i < tabs->index_a)
 	{
 		j = var->chunk_size * var->count_chunk;
-		printf("first = %d\n", j);
 		while (j < var->chunk_size * (var->count_chunk + 1))
 		{
 			if (tabs->tab1[i] == tabs->perfect_tab[j])
-			{
-				printf("\n");
 				return (i);
-			}
 			j++;
 		}
 		i++;
@@ -96,14 +93,10 @@ int	hold_second(t_tab *tabs, t_var *var)
 	while (i >= 0)
 	{
 		j = var->chunk_size * var->count_chunk;
-		printf("second = %d\n", j);
 		while (j < var->chunk_size * (var->count_chunk + 1))
 		{
 			if (tabs->tab1[i] == tabs->perfect_tab[j])
-			{
-				printf("\n");
 				return (i);
-			}
 			j++;
 		}
 		i--;
@@ -119,7 +112,7 @@ void	opti(t_var *var)
 		var->ope.rr = var->ope.rb;
 		var->ope.rb = 0;
 	}
-	else
+	else if (var->ope.rb > var->ope.ra)
 	{
 		var->ope.rb = var->ope.rb - var->ope.ra;
 		var->ope.rr = var->ope.ra;
@@ -131,7 +124,7 @@ void	opti(t_var *var)
 		var->ope.rrr = var->ope.rrb;
 		var->ope.rrb = 0;
 	}
-	else
+	else if (var->ope.rrb > var->ope.rra)
 	{
 		var->ope.rrb = var->ope.rrb - var->ope.rra;
 		var->ope.rrr = var->ope.rra;
@@ -157,11 +150,11 @@ void	get_value(t_tab *tabs, t_var *var)
 	}
 	if (pos_b == -1)
 		pos_b = bigger_pos(tabs);
-	if (pos_b <= (tabs->index_b - pos_b))
+	if (pos_b <= (tabs->index_b / 2))
 		var->ope.rb = pos_b;
 	else
 		var->ope.rrb = tabs->index_b - pos_b;
-	//opti(var);
+	opti(var);
 }
 
 void	apply_ope(t_tab *tabs, t_var *var)
@@ -184,14 +177,14 @@ int	algo(t_tab *tabs, t_var *var)
 {
 	var->count_chunk = 0;
 	var->count_round = 1;
-	while (tabs->index_a > 9)
+	
+	while (tabs->index_a > 0)
 	{
 		ft_bzero(&var->ope, sizeof(t_ope));
 		get_value(tabs, var);
 		apply_ope(tabs, var);
 		push_b(tabs);
 		
-		//printf("round = %d\nchunksize = %d\ncount_chunk = %d\n", var->count_round, var->chunk_size, var->count_chunk);
 		if (var->count_round == var->chunk_size)
 		{
 			var->count_chunk++;

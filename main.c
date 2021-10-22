@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:14 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/20 19:00:00 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/22 17:50:11 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	t_var	var;
 
 	i = 0;
-	var.chunk_size = 5;
+	var.chunk_size = 3;
 	if (parsing(argc, argv) == -1 || init_tab(argc, argv, &tabs) == -1)
 		return (1);
 	algo(&tabs, &var);
@@ -42,7 +42,5 @@ int	main(int argc, char **argv)
 		printf("tab2 = %ld\n", tabs.tab2[i]);
 		i++;
 	}
-
-	
 	return (0);
 }
