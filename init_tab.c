@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:50:32 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/20 13:49:23 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:59:44 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	init_tab(int argc, char **argv, t_tab *tabs)
 	i = 0;
 	tabs->index_a = argc - 1;
 	tabs->index_b = 0;
+	tabs->perfect_len = argc - 1;
+	
 	tabs->tab1 = malloc(sizeof(long) * argc);
 	if (!tabs->tab1)
 		return (-2);

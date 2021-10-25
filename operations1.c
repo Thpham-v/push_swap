@@ -6,25 +6,29 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:16:57 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/19 16:25:52 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:30:37 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_tab *tabs)
+void	swap_a(t_tab *tabs, t_var *var)
 {
 	if (tabs->index_a >= 2)
 		ft_swap(&tabs->tab1[0], &tabs->tab1[1]);
+	if (var->display == 1)
+		printf("sa\n");
 }
 
-void	swap_b(t_tab *tabs)
+void	swap_b(t_tab *tabs, t_var *var)
 {
 	if (tabs->index_b >= 2)
 		ft_swap(&tabs->tab2[0], &tabs->tab2[1]);
+	if (var->display == 1)
+		printf("sb\n");
 }
 
-void	push_a(t_tab *tabs)
+void	push_a(t_tab *tabs, t_var *var)
 {
 	int i;
 
@@ -45,9 +49,11 @@ void	push_a(t_tab *tabs)
 		tabs->index_b--;
 		tabs->index_a++;
 	}
+	if (var->display == 1)
+		printf("pa\n");
 }
 
-void	push_b(t_tab *tabs)
+void	push_b(t_tab *tabs, t_var *var)
 {
 	int i;
 
@@ -68,4 +74,6 @@ void	push_b(t_tab *tabs)
 		tabs->index_a--;
 		tabs->index_b++;
 	}
+	if (var->display == 1)
+		printf("pb\n");
 }

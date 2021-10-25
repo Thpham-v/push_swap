@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:44 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/09/30 19:15:34 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:35:17 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int		ft_isdigit(char *str)
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
+		{
+			printf("Error\n");
 			return (-2);
+		}
 		i++;
 	}
 	return (0);
@@ -46,7 +49,10 @@ int	parsing(int argc, char **argv)
 		while (j + i < argc)
 		{
 			if (!ft_strcmp(argv[i], argv[j + i]))
+			{
+				printf("Error\n");
 				return (-1);
+			}
 			j++;
 		}
 		if (ft_isdigit(argv[i]))
