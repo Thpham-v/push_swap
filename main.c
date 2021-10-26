@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:14 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/25 18:55:11 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:35:38 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	best_chunk(t_tab *tabs, t_var *var, int argc, char **argv)
 	int	best;
 	
 	chunk_size = 3;
+	save = 1;
 	while (chunk_size < 30)
 	{
 		if (init_tab(argc, argv, tabs) == -1)
 			return (-1);
 		var->chunk_size = chunk_size;
 		algo(tabs, var);
-		var->count_round = save - 1;
-		if (var->count_round < save)
+		if (save == 1 || var->count_round < save)
 		{
 			save = var->count_round;
 			best = chunk_size;
@@ -57,9 +57,8 @@ int	main(int argc, char **argv)
 	if (init_tab(argc, argv, &tabs) == -1)
 			return (-1);
 	var.display++;
-	printf("bestchunk = %d\n", ret);
 	algo(&tabs, &var);
-	while (i < argc - 1)
+	/*while (i < argc - 1)
 	{
 		printf("perfect = %ld\n", tabs.perfect_tab[i]);
 		i++;
@@ -77,6 +76,6 @@ int	main(int argc, char **argv)
 	{
 		printf("tab b = %ld\n", tabs.tab2[i]);
 		i++;
-	}
+	}*/
 	return (0);
 }

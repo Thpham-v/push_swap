@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/25 18:42:18 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:06:01 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	first_or_last(t_tab *tabs, t_var *var)
 {
-	
 	var->pos_first = hold_first(tabs, var);
 	var->pos_last = hold_second(tabs, var);
 	if (var->pos_first == -1 || var->pos_last == -1)
@@ -26,14 +25,15 @@ int	first_or_last(t_tab *tabs, t_var *var)
 
 int	hold_first(t_tab *tabs, t_var *var)
 {
-	int i;
+	int	i;
 	int	j;
-	 
+
 	i = 0;
 	while (i < tabs->index_a)
 	{
 		j = var->chunk_size * var->count_chunk;
-		while (j < var->chunk_size * (var->count_chunk + 1) && j < tabs->perfect_len)
+		while (j < var->chunk_size * (var->count_chunk + 1)
+			&& j < tabs->perfect_len)
 		{
 			if (tabs->tab1[i] == tabs->perfect_tab[j])
 				return (i);
@@ -46,14 +46,15 @@ int	hold_first(t_tab *tabs, t_var *var)
 
 int	hold_second(t_tab *tabs, t_var *var)
 {
-	int i;
+	int	i;
 	int	j;
-	
+
 	i = tabs->index_a - 1;
 	while (i >= 0)
 	{
 		j = var->chunk_size * var->count_chunk;
-		while (j < var->chunk_size * (var->count_chunk + 1) && j < tabs->perfect_len)
+		while (j < var->chunk_size * (var->count_chunk + 1)
+			&& j < tabs->perfect_len)
 		{
 			if (tabs->tab1[i] == tabs->perfect_tab[j])
 				return (i);
@@ -66,9 +67,10 @@ int	hold_second(t_tab *tabs, t_var *var)
 
 void	get_value(t_tab *tabs, t_var *var)
 {
-	int ret;
+	int	ret;
 	int	pos_b;
-	
+
+	ft_bzero(&var->ope, sizeof(t_ope));
 	ret = first_or_last(tabs, var);
 	if (ret == 1)
 	{
@@ -91,15 +93,14 @@ void	get_value(t_tab *tabs, t_var *var)
 
 int	algo(t_tab *tabs, t_var *var)
 {
-	int ret;
+	int	ret;
 	int	i;
-	
+
 	i = 1;
 	var->count_chunk = 0;
 	var->count_round = 0;
 	while (tabs->index_a > 0)
 	{
-		ft_bzero(&var->ope, sizeof(t_ope));
 		get_value(tabs, var);
 		apply_ope(tabs, var);
 		push_b(tabs, var);
@@ -115,6 +116,5 @@ int	algo(t_tab *tabs, t_var *var)
 	apply_ope(tabs, var);
 	while (tabs->index_b > 0)
 		push_a(tabs, var);
-	printf("\nround = %d\n", var->count_round);
 	return (0);
 }
