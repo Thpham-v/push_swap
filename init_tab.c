@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:50:32 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 18:54:39 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/29 22:26:22 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	free_tab(t_tab *tabs)
 
 int	malloc_tabs(int argc, t_tab *tabs)
 {
-	tabs->tab1 = malloc(sizeof(long) * argc);
+	tabs->tab1 = malloc(sizeof(long) * argc - 1);
 	if (!tabs->tab1)
 		return (-2);
-	tabs->perfect_tab = malloc(sizeof(long) * argc);
+	tabs->perfect_tab = malloc(sizeof(long) * argc - 1);
 	if (!tabs->perfect_tab)
 		return (-2);
-	tabs->tab2 = malloc(sizeof(long) * argc);
+	tabs->tab2 = malloc(sizeof(long) * argc - 1);
 	if (!tabs->tab2)
 		return (-2);
 	return (0);
