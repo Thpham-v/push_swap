@@ -6,23 +6,23 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:44 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/25 15:35:17 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:39:47 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_isdigit(char *str)
+int	ft_isdigit(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
-		{
-			if (!str[i + 1] || str[i + 1] == '+' || str[i + 1] == '-')
-				return (-2);
-			i++;
-		}
+	{
+		if (!str[i + 1] || str[i + 1] == '+' || str[i + 1] == '-')
+			return (-2);
+		i++;
+	}
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
@@ -37,7 +37,7 @@ int		ft_isdigit(char *str)
 
 int	parsing(int argc, char **argv)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 1;

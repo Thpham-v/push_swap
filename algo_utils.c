@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:15:43 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/26 15:52:48 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:29:57 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	apply_ope(t_tab *tabs, t_var *var)
 {
-	var->count_round += var->ope.rr + var->ope.ra + var->ope.rb + var->ope.rrr + var->ope.rra + var->ope.rrb;
+	var->count_round += var->ope.rr + var->ope.ra + var->ope.rb
+		+ var->ope.rrr + var->ope.rra + var->ope.rrb;
 	while (var->ope.rr-- > 0)
 		rotate_a_b(tabs, var);
 	while (var->ope.ra-- > 0)
@@ -59,8 +60,8 @@ void	opti(t_var *var)
 
 int	bigger_pos(t_tab *tabs)
 {
-	int i;
-	int bigger;
+	int	i;
+	int	bigger;
 	int	pos;
 
 	pos = 0;
@@ -96,4 +97,3 @@ int	pos_in_b(t_tab *tabs, int value)
 	}
 	return (-1);
 }
-

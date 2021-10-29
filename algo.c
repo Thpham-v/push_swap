@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/26 18:06:01 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:27:28 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int	algo(t_tab *tabs, t_var *var)
 			var->count_chunk++;
 		i++;
 	}
+	ft_bzero(&var->ope, sizeof(t_ope));
 	ret = bigger_pos(tabs);
 	if (ret <= (tabs->index_b / 2))
 		var->ope.rb = ret;

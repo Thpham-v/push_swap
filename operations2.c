@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:57:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/25 18:31:13 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:38:41 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	rotate_a(t_tab *tabs, t_var *var)
 	{
 		while (i < tabs->index_a - 1)
 		{
-			
 			ft_swap(&tabs->tab1[i], &tabs->tab1[i + 1]);
 			i++;
 		}

@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:16:57 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/25 18:30:37 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/29 22:03:25 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	swap_b(t_tab *tabs, t_var *var)
 
 void	push_a(t_tab *tabs, t_var *var)
 {
-	int i;
+	int	i;
 
 	if (tabs->index_b)
 	{
@@ -41,7 +41,7 @@ void	push_a(t_tab *tabs, t_var *var)
 			i--;
 		}
 		tabs->tab1[0] = tabs->tab2[0];
-		while (i < tabs->index_b)
+		while (i < tabs->index_b - 1)
 		{
 			tabs->tab2[i] = tabs->tab2[i + 1];
 			i++;
@@ -55,7 +55,7 @@ void	push_a(t_tab *tabs, t_var *var)
 
 void	push_b(t_tab *tabs, t_var *var)
 {
-	int i;
+	int	i;
 
 	if (tabs->index_a)
 	{
@@ -66,7 +66,7 @@ void	push_b(t_tab *tabs, t_var *var)
 			i--;
 		}
 		tabs->tab2[0] = tabs->tab1[0];
-		while (i < tabs->index_a)
+		while (i < tabs->index_a - 1)
 		{
 			tabs->tab1[i] = tabs->tab1[i + 1];
 			i++;

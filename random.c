@@ -50,3 +50,23 @@ int        main(int ac, char **av)
     free(tab);
     return (0);
 }
+
+/*while (i < argc - 1)
+	{
+		printf("perfect = %ld\n", tabs.perfect_tab[i]);
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	while (i < tabs.index_a)
+	{
+		printf("tab a = %ld\n", tabs.tab1[i]);
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	while (i < tabs.index_b)
+	{
+		printf("tab b = %ld\n", tabs.tab2[i]);
+		i++;
+	}*/
