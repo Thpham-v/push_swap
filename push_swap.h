@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 15:05:33 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:42:20 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int		bigger_pos(t_tab *tabs);
 void	opti(t_var *var);
 void	apply_ope(t_tab *tabs, t_var *var);
 void	free_tab(t_tab *tabs);
+int		is_sort(t_tab *tabs);
 
 #endif

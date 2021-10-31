@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:09:46 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 18:37:01 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:53:35 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ long	ft_atoi(const char *str)
 {
 	size_t	i;
 	long	res;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	res = 0;

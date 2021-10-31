@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:44 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 14:39:47 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:53:51 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ int	ft_isdigit(char *str)
 		i++;
 	}
 	return (0);
+}
+
+int	is_sort(t_tab *tabs)
+{
+	int	i;
+
+	i = 0;
+	while (i < tabs->index_a - 1)
+	{
+		if (tabs->tab1[i + 1] < tabs->tab1[i])
+			return (0);
+		i++;
+	}
+	return (-1);
 }
 
 int	parsing(int argc, char **argv)

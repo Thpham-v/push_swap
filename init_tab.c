@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:50:32 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 22:26:22 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:02:16 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	init_tab(int argc, char **argv, t_tab *tabs)
 		tabs->perfect_tab[i] = ft_atoi(argv[i + 1]);
 		if (tabs->tab1[i] > 2147483647 || tabs->tab1[i] < -2147483648)
 		{
-			free_tab(tabs);
+			printf("error\n");
 			return (-1);
 		}
 		i++;

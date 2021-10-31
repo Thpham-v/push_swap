@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:14 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 22:47:25 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:53:10 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	best_chunk(t_tab *tabs, t_var *var, int argc, char **argv)
 	while (chunk_size < 30)
 	{
 		if (init_tab(argc, argv, tabs) == -1)
+			return (-1);
+		if (is_sort(tabs) == -1)
 			return (-1);
 		var->chunk_size = chunk_size;
 		algo(tabs, var);
@@ -48,12 +50,12 @@ int	main(int argc, char **argv)
 	var.display = 0;
 	if (parsing(argc, argv) == -1)
 		return (1);
-	 ret = best_chunk(&tabs, &var, argc, argv);
-	 if (ret == -1)
-	 {
+	ret = best_chunk(&tabs, &var, argc, argv);
+	if (ret == -1)
+	{
 		free_tab(&tabs);
 		return (1);
-	 }
+	}
 	var.chunk_size = ret;
 	if (init_tab(argc, argv, &tabs) == -1)
 		return (-1);
