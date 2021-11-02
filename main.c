@@ -12,6 +12,59 @@
 
 #include "push_swap.h"
 
+void	pos_is_three(t_tab *tabs, t_var *var)
+{
+	if (tabs->index_a == 4)
+		reverse_r_a(tabs, var);
+	reverse_r_a(tabs, var);
+	push_a(tabs, var);
+	reverse_r_a(tabs, var);
+	reverse_r_a(tabs, var);
+}
+
+void	push_to_a(t_tab *tabs, t_var *var, int pos)
+{
+	if (pos == 1 || pos > tabs->index_a)
+	{
+		push_a(tabs, var);
+		if (pos != 1)
+			rotate_a(tabs, var);
+	}
+	else if (pos == 2)
+	{
+		rotate_a(tabs, var);
+		push_a(tabs, var);
+		reverse_r_a(tabs, var);
+	}
+	else if (pos == 3)
+		pos_is_three(tabs, var);
+	else if (pos == 4)
+	{
+		reverse_r_a(tabs, var);
+		push_a(tabs, var);
+		rotate_a(tabs, var);
+		rotate_a(tabs, var);
+	}
+}
+
+int	get_pos(t_tab *tabs, int value)
+{
+	int	i;
+
+	i = 0;
+	if (value < tabs->tab1[0])
+		return (1);
+	while (i < (tabs->index_a - 1))
+	{
+		if (value > tabs->tab1[i] && value < tabs->tab1[i + 1])
+			return (i + 2);
+		i++;
+	}
+	if (value > tabs->tab1[i])
+		return (i + 2);
+	return (0);
+}
+
 void	sort_three(t_tab *tabs, t_var *var)
 {
 	if (tabs->tab1[0] > tabs->tab1[1] && tabs->tab1[0]
@@ -40,22 +93,24 @@ void	sort_three(t_tab *tabs, t_var *var)
 void	sort_five(t_tab *tabs, t_var *var)
 {
 	int	i;
-	int j;
-	int	count;
-	
+	int	pos;
+
 	i = 0;
-	count = 0;
 	push_b(tabs, var);
 	push_b(tabs, var);
 	sort_three(tabs, var);
-	
+	while (i < tabs->index_b)
+	{
+		pos = get_pos(tabs, tabs->tab2[i]);
+		push_to_a(tabs, var, pos);
+	}
 }
 
 void	sort_small(t_tab *tabs, t_var *var, int argc)
 {
 	if (argc == 4)
 		sort_three(tabs, var);
-	if (argc == 6)
+	else if (argc == 6)
 		sort_five(tabs, var);
 }
 
@@ -111,13 +166,6 @@ int	main(int argc, char **argv)
 		sort_small(&tabs, &var, argc);
 	else
 		algo(&tabs, &var);
-	i = 0;
-	while (i < tabs.index_a)
-	{
-		printf("tab a = %ld\n", tabs.tab1[i]);
-		i++;
-	}
-	printf("\n");
 	free_tab(&tabs);
 	return (0);
 }
