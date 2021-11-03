@@ -1,6 +1,7 @@
-NAME			=	push_swap
-SRC_DIR			=	./
-INC_DIR			=	./
+NAME				=	push_swap
+BONUS_NAME			=	checker
+BONUS_DIR			=	./bonus/
+SRCS_DIR			=	./srcs/
 SRCS			=	main.c	\
 					init_tab.c	\
 					operations1.c	\
@@ -11,29 +12,35 @@ SRCS			=	main.c	\
 					algo_utils.c	\
 					algo.c		
 
-
-
 					
-SRC_BASENAME	=	$(addprefix $(SRC_DIR), $(SRCS))		
-OBJS			=	$(SRC_BASENAME:.c=.o)
-CC				=	clang 
-FLAGS			=	-Wall -Wextra -Werror -I $(INC_DIR)
+SRCS_BASENAME		=	$(addprefix $(SRCS_DIR), $(SRCS))
+OBJS				=	$(SRCS_BASENAME:.c=.o)
+CC					=	clang
+FLAGS				=	-Wall -Werror -Wextra -I ./header
 
-.c.o		:
-				$(CC) $(FLAGS) -c $< -o $@
+.c.o			:
+				$(CC) -c $< -o $(<:.c=.o) $(FLAGS)
 
-all			:	$(NAME)
+all				:	$(NAME)
 
-$(NAME)		:	$(OBJS)
-			$(CC) $(FLAGS) -o $(NAME) $(OBJS)
-			@echo [$(NAME)] : Created !
+bonus			:	$(NAME) $(BONUS_NAME)
 
-clean		:
-			rm -rf $(OBJS)
-			@echo "[OBJS] Deleted"
+$(NAME)			:	$(OBJS)
+				$(CC) $(OBJS) $(FLAGS) -o $(NAME)
+				@echo [$(NAME)] : Created !
 
-fclean		:	clean
-			rm -f $(NAME)
-			@echo "[$(NAME)]: Deleted"
+$(BONUS_NAME)	:
+				make -C $(BONUS_DIR)
+				mv $(BONUS_DIR)$(BONUS_NAME) ./
 
-re			:	fclean all
+clean			:
+				rm -f $(OBJS)
+				make clean -C $(BONUS_DIR)
+
+fclean			:	clean
+				rm -f $(NAME)
+				rm -f $(BONUS_NAME)
+
+re				:	fclean all
+
+.PHONY: 		clean fclean all re

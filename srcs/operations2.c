@@ -6,13 +6,13 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:57:07 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 14:38:41 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:52:22 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_tab *tabs, t_var *var)
+void	rotate_a(t_tab *tabs, int display)
 {
 	int	i;
 
@@ -25,11 +25,11 @@ void	rotate_a(t_tab *tabs, t_var *var)
 			i++;
 		}
 	}
-	if (var->display == 1)
+	if (display == 1)
 		printf("ra\n");
 }
 
-void	rotate_b(t_tab *tabs, t_var *var)
+void	rotate_b(t_tab *tabs, int display)
 {
 	int	i;
 
@@ -42,11 +42,11 @@ void	rotate_b(t_tab *tabs, t_var *var)
 			i++;
 		}
 	}
-	if (var->display == 1)
+	if (display == 1)
 		printf("rb\n");
 }
 
-void	reverse_r_a(t_tab *tabs, t_var *var)
+void	reverse_r_a(t_tab *tabs, int display)
 {
 	int	i;
 
@@ -59,11 +59,11 @@ void	reverse_r_a(t_tab *tabs, t_var *var)
 			i--;
 		}
 	}
-	if (var->display == 1)
+	if (display == 1)
 		printf("rra\n");
 }
 
-void	reverse_r_b(t_tab *tabs, t_var *var)
+void	reverse_r_b(t_tab *tabs, int display)
 {
 	int	i;
 
@@ -76,6 +76,6 @@ void	reverse_r_b(t_tab *tabs, t_var *var)
 			i--;
 		}
 	}
-	if (var->display == 1)
+	if (display == 1)
 		printf("rrb\n");
 }

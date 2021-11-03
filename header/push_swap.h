@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:45:36 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/31 16:42:20 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:54:18 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ void	sort_int_tab(t_tab *tabs, int size);
 void	ft_swap(long *a, long *b);
 int		parsing(int argc, char **argv);
 int		ft_strcmp(char *s1, char *s2);
-void	swap_a(t_tab *tabs, t_var *var);
-void	swap_b(t_tab *tabs, t_var *var);
-void	push_a(t_tab *tabs, t_var *var);
-void	push_b(t_tab *tabs, t_var *var);
-void	rotate_a(t_tab *tabs, t_var *var);
-void	rotate_b(t_tab *tabs, t_var *var);
-void	reverse_r_a(t_tab *tabs, t_var *var);
-void	reverse_r_b(t_tab *tabs, t_var *var);
-void	swap_a_b(t_tab *tabs, t_var *var);
-void	rotate_a_b(t_tab *tabs, t_var *var);
-void	reverse_r_a_b(t_tab *tabs, t_var *var);
+void	swap_a(t_tab *tabs, int display);
+void	swap_b(t_tab *tabs, int display);
+void	push_a(t_tab *tabs, int display);
+void	push_b(t_tab *tabs, int display);
+void	rotate_a(t_tab *tabs, int display);
+void	rotate_b(t_tab *tabs, int display);
+void	reverse_r_a(t_tab *tabs, int display);
+void	reverse_r_b(t_tab *tabs, int display);
+void	swap_a_b(t_tab *tabs, int display);
+void	rotate_a_b(t_tab *tabs, int display);
+void	reverse_r_a_b(t_tab *tabs, int display);
 int		first_or_last(t_tab *tabs, t_var *var);
 int		hold_first(t_tab *tabs, t_var *var);
 int		hold_second(t_tab *tabs, t_var *var);

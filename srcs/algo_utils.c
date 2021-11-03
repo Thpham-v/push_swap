@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:15:43 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/11/02 14:10:06 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:55:41 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ void	apply_ope(t_tab *tabs, t_var *var)
 	var->count_round += var->ope.rr + var->ope.ra + var->ope.rb
 		+ var->ope.rrr + var->ope.rra + var->ope.rrb;
 	while (var->ope.rr-- > 0)
-		rotate_a_b(tabs, var);
+		rotate_a_b(tabs, var->display);
 	while (var->ope.ra-- > 0)
-		rotate_a(tabs, var);
+		rotate_a(tabs, var->display);
 	while (var->ope.rb-- > 0)
-		rotate_b(tabs, var);
+		rotate_b(tabs, var->display);
 	while (var->ope.rrr-- > 0)
-		reverse_r_a_b(tabs, var);
+		reverse_r_a_b(tabs, var->display);
 	while (var->ope.rra-- > 0)
-		reverse_r_a(tabs, var);
+		reverse_r_a(tabs, var->display);
 	while (var->ope.rrb-- > 0)
-		reverse_r_b(tabs, var);
+		reverse_r_b(tabs, var->display);
 }
 
 void	opti(t_var *var)

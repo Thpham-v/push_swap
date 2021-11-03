@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:46:29 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/29 14:27:28 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:57:04 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	algo(t_tab *tabs, t_var *var)
 	{
 		get_value(tabs, var);
 		apply_ope(tabs, var);
-		push_b(tabs, var);
+		push_b(tabs, var->display);
 		if (i == var->chunk_size * (var->count_chunk + 1))
 			var->count_chunk++;
 		i++;
@@ -116,6 +116,6 @@ int	algo(t_tab *tabs, t_var *var)
 		var->ope.rrb = tabs->index_b - ret;
 	apply_ope(tabs, var);
 	while (tabs->index_b > 0)
-		push_a(tabs, var);
+		push_a(tabs, var->display);
 	return (0);
 }
