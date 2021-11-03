@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:48:14 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/11/03 14:59:20 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:54:06 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,10 @@ int	main(int argc, char **argv)
 	}
 	var.chunk_size = ret;
 	if (init_tab(argc, argv, &tabs) == -1)
+	{
+		free_tab(&tabs);
 		return (-1);
+	}
 	var.display++;
 	if (argc == 4 || argc == 6)
 		sort_small(&tabs, &var, argc);

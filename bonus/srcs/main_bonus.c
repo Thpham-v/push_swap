@@ -6,7 +6,7 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:35:32 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/11/03 15:27:23 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:58:44 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ int	main(int argc, char **argv)
 	if (parsing(argc, argv) == -1)
 		return (1);
 	if (init_tab(argc, argv, &tabs) == -1)
+	{
+		free_tab(&tabs);
 		return (-1);
+	}
 	if (read_ope(&tabs) == 0)
 	{
 		if (is_sort(&tabs) == -1)

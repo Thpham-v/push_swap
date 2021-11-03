@@ -6,21 +6,27 @@
 /*   By: thpham-v <thpham-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 18:50:32 by thpham-v          #+#    #+#             */
-/*   Updated: 2021/10/31 16:02:16 by thpham-v         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:54:58 by thpham-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	free_tab(t_tab *tabs)
-{
-	free(tabs->tab1);
-	free(tabs->tab2);
-	free(tabs->perfect_tab);
+{	
+	if (tabs->tab1)
+		free(tabs->tab1);
+	if (tabs->tab2)
+		free(tabs->tab2);
+	if (tabs->perfect_tab)
+		free(tabs->perfect_tab);
 }
 
 int	malloc_tabs(int argc, t_tab *tabs)
 {
+	tabs->tab1 = NULL;
+	tabs->tab2 = NULL;
+	tabs->perfect_tab = NULL;
 	tabs->tab1 = malloc(sizeof(long) * argc - 1);
 	if (!tabs->tab1)
 		return (-2);
